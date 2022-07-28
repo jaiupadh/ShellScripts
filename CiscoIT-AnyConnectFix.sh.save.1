@@ -1,0 +1,21 @@
+#! /bin/bash
+##########################################################################################################################################
+#                                     Shell Script Created on 15-Aug-21                                                                  #
+# This is a shell script to cleanup unnessessary modules of Cisco AnyConnect VPN Client on MacOS X & Created by Jaidev Upadhya(jaiupadh) #
+##########################################################################################################################################
+
+echo "Clean up of AnyConnect VPN Client Modules in Progress... You can take a coffee break ;) "
+
+cd /opt/cisco/anyconnect/bin
+
+sudo sh websecurity_uninstall.sh
+sudo pkgutil -- forget com.cisco.pkg.anyconnect.websecurity_v2
+
+echo "AnyConnect Web Security Module has been uninstalled successfully - This isn't deployed inside Cisco"
+
+sudo sh amp_uninstall.sh
+sudo pkgutil -- forget com.cisco.pkg.anyconnect.fireamp
+
+echo "AnyConnect AMP Enabler Module has been uninstalled successfully - This isn't deployed inside Cisco"
+
+echo "Cisco AnyConnect VPN Client Modules that are not required have been wiped from this MacOS Successfully -> Submitting the logs & Exitin
