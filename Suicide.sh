@@ -6,4 +6,4 @@
 echo "So long, suckers!"
 
 #Delete the script
-rm "$0"
+rm -rf "$0"
